@@ -1,12 +1,14 @@
-﻿using teste1;
+﻿using Microsoft.Extensions.DependencyInjection;
+using teste1;
 
-Pessoas pessoa = new Pessoas();
-Conta conta = new Conta();
+var serviceProvider = new ServiceCollection()
+    .AddTransient<IConta, Conta>()
+    .AddTransient<IPessoa, Pessoas>()
+    .AddTransient<IContaService, ContaService>()
+    .BuildServiceProvider();
 
-Console.WriteLine("Entre com o Número da conta");
-conta.NumeroConta = Console.ReadLine();
-Console.WriteLine("Entre com o Nome do Titular da conta");
-pessoa.Nome = Console.ReadLine();
-Console.WriteLine("Entre com o Deposito da conta");
-conta.Saldo = Console.ReadLine();
-Console.WriteLine($"conta de {pessoa.Nome} \n De numero {conta.NumeroConta} \n com saldo de {conta.Saldo}");
+var contaService = serviceProvider.GetRequiredService<IContaService>();
+var pessoa = serviceProvider.GetRequiredService<IPessoa>();
+var conta = serviceProvider.GetRequiredService<IConta>();
+
+contaService.CriarConta(pessoa, conta);

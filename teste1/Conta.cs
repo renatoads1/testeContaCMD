@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace teste1
 {
-    internal class Conta
+    public class Conta : IConta
     {
-        internal int Id { get; set; }
-        internal string NumeroConta { get; set; }
-        internal string Agencia { get; set; }
-        internal string TipoConta { get; set; }
-        internal string Saldo { get; set; }
+        public int Id { get; set; }
+        public string NumeroConta { get; set; }
+        public string Agencia { get; set; }
+        public string TipoConta { get; set; }
+        public decimal Saldo { get; set; }
+        
     }
 }

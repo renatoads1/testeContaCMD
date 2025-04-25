@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace teste1
 {
-    internal class Pessoas
+    public class Pessoas : IPessoa
     {
-        internal int Id { get; set; }
-        internal string Nome { get; set; }
-        internal int Idade { get; set; }
-        internal string Endereco { get; set; }
-        internal string Telefone { get; set; }
-        internal string Email { get; set; }
-        internal string CPF { get; set; }
-        internal string IdConta { get; set; }
+        public int Id { get; set; }
+        public string Nome { get; set; }
+        public int Idade { get; set; }
+        public string Endereco { get; set; }
+        public string Telefone { get; set; }
+        public string Email { get; set; }
+        public string CPF { get; set; }
+        public string IdConta { get; set; }
 
     }
 }
